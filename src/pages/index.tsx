@@ -1,69 +1,79 @@
-import useGeolocation from "@/lib/hooks/useGeolocaiton";
-import { Location } from "@/lib/types";
 import * as React from "react";
-import { Card, CardBody } from "@nextui-org/react";
-import { CiLocationOn } from "react-icons/ci";
+import { Button, Input, Switch } from "@nextui-org/react";
+import { useSDK } from "@metamask/sdk-react";
+import { useRouter } from "next/router";
+import { UserType, UserTypeEnum } from "@/lib/types/user";
 import Image from "next/image";
+import useWeb3 from "@/lib/hooks/useWeb3";
 
-const Home = () => {
-  const location: Location = useGeolocation();
+const CusButton = () => {
+  return (
+    <Button
+      type="submit"
+      variant="ghost"
+      size="lg"
+      className="text-lg rounded-md bg-white/50"
+    >
+      <Image
+        src="/images/metamask-logo.svg"
+        height={50}
+        width={140}
+        alt={"Metamask logo"}
+      />
+    </Button>
+  );
+};
+
+const App = () => {
+  const { sdk, account, connected, connecting, provider, chainId } = useSDK();
+  const router = useRouter();
+  const { userIsPresent } = useWeb3();
+
+  const connect = async () => {
+    try {
+      const accounts = await sdk?.connect();
+      if (accounts !== undefined) {
+        router.replace("/home");
+      }
+      return accounts ? accounts : undefined;
+    } catch (err) {
+      console.warn(`failed to connect..`, err);
+    }
+  };
+
+  React.useEffect(() => {
+    if (account) {
+      router.replace("/home");
+    }
+  }, [account]);
+
+  const onSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    const account = await connect();
+  };
 
   return (
-    <div className="flex flex-col gap-4 h-full">
-      <div className="text-4xl font-bold">
-        <span className="text-green-600">Grocery</span>
-        <br />
-        at your
-        <br /> fingertips!
-      </div>
-      <Card className="bg-nord1 mt-5">
-        <CardBody className="flex flex-row gap-3 items-center overflow-hidden">
-          <CiLocationOn size={30} />
-          <span className="font-bold text-blue-500">Location :</span>
-          <span>
-            {location.longitude}&nbsp;&nbsp;{location.latitude}
-          </span>
-        </CardBody>
-      </Card>
-      <div className="w-full font-bold text-5xl mt-5">Essentials</div>
-      <Card
-        className="bg-green/50 w-full h-[250px] flex flex-row gap-4 justify-between px-4 items-center"
-        isPressable
+    <div className="h-screen w-screen flex flex-col gap-10 items-center py-5">
+      <span className="text-5xl font-bold text-center">
+        Login
+        <br /> to <br />
+        <span className="text-green-500">Safe </span>Soap
+      </span>
+      <Button
+        type="submit"
+        variant="ghost"
+        size="lg"
+        className="text-lg rounded-md bg-white/50 mt-[50%]"
       >
-        <div className="h-full flex items-center justify-center text-3xl">
-          Edibles
-        </div>
-        <div className="h-full flex-[0.7] flex justify-center items-center">
-          <Image
-            src="/images/veg.jpg"
-            alt="Veggies"
-            layout="contain"
-            width={1000}
-            height={1000}
-            className="mix-blend-color-burn"
-          />
-        </div>
-      </Card>
-      <Card
-        className="bg-green/50 w-full h-[250px] flex flex-row gap-4 justify-between px-4 items-center"
-        isPressable
-      >
-        <div className="h-full flex items-center justify-center text-3xl">
-          Toiletries
-        </div>
-        <div className="h-full flex-[0.7] flex justify-center items-center">
-          <Image
-            src="/images/cleaner.jpg"
-            alt="Veggies"
-            layout="contain"
-            width={1000}
-            height={1000}
-            className="mix-blend-color-burn"
-          />
-        </div>
-      </Card>
+        <Image
+          src="/images/metamask-logo.svg"
+          height={50}
+          width={140}
+          alt={"Metamask logo"}
+        />
+      </Button>
     </div>
   );
 };
 
-export default Home;
+export default App;

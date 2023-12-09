@@ -3,7 +3,8 @@ import type { AppContext, AppProps } from "next/app";
 import Layout from "@/components/layouts/main";
 import { NextUIProvider } from "@nextui-org/react";
 import * as React from "react";
-import { AppContextType } from "@/lib/types/state";
+import { AppContextType, AppContextValue } from "@/lib/types/state";
+import { MetaMaskProvider, useSDK } from "@metamask/sdk-react";
 
 const AppContext = React.createContext<AppContextType>({} as AppContextType);
 
@@ -17,11 +18,41 @@ export const useAppContext = () => {
 };
 
 export default function App({ Component, pageProps, router }: AppProps) {
+  const { account } = useSDK();
+  React.useEffect(() => {
+    if (account === undefined) {
+      router.replace("/");
+    }
+  }, [account]);
+
+  const [state, setState] = React.useState<AppContextValue>({
+    address: "",
+    user: undefined,
+  });
+
   return (
-    <NextUIProvider>
-      <Layout router={router}>
-        <Component {...pageProps} />
-      </Layout>
-    </NextUIProvider>
+    <MetaMaskProvider
+      debug={true}
+      sdkOptions={{
+        checkInstallationImmediately: false,
+        dappMetadata: {
+          name: "Safe Shop",
+          url:
+            typeof window !== "undefined" ? window.location.host + "home" : "",
+        },
+      }}
+    >
+      <NextUIProvider>
+        <AppContext.Provider value={{ state, setState }}>
+          {router.pathname !== "/" && router.pathname !== "/login" ? (
+            <Layout router={router}>
+              <Component {...pageProps} />
+            </Layout>
+          ) : (
+            <Component {...pageProps} />
+          )}
+        </AppContext.Provider>
+      </NextUIProvider>
+    </MetaMaskProvider>
   );
 }

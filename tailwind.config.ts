@@ -13,7 +13,7 @@ const config: Config = {
       colors: {
         nord0: "#d8dee9",
         nord1: "#E5E9F0",
-        green: "#DFF7EA",
+        teal: "#DFF7EA",
         sky: "#D2EDF4",
       },
     },

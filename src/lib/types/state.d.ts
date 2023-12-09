@@ -1,4 +1,5 @@
 import * as React from "react";
+import { UserType } from ".";
 
 type AppContextType = {
   state: AppContextValue;
@@ -7,4 +8,5 @@ type AppContextType = {
 
 type AppContextValue = {
   address: string;
+  user?: UserType;
 };

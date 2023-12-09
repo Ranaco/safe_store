@@ -51,7 +51,7 @@ const BottomNavbar: React.FC<BottomNavbarProps> = ({ router }) => {
     {
       icon: GoHome,
       label: "Home",
-      path: "/",
+      path: "/home",
     },
     {
       icon: CiSearch,
