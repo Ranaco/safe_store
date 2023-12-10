@@ -47,6 +47,31 @@ We express our gratitude to the following entities for their support and contrib
 - [MetaMask](https://metamask.io/)
 - [LightHouse](https://lighthouse.adqr.org/)
 
+## How to Run
+
+To run the Safe Shop project locally, follow these steps:
+
+1. **Clone the Repository:**
+
+   ```bash
+   git clone https://github.com/Ranaco
+   ```
+
+2. **Install Dependencies:**
+
+   ```bash
+   cd Safe-Shop
+   npm install
+   ```
+
+3. **Run the Development Server:**
+
+   ```bash
+   npm run dev
+   ```
+
+   The application should now be accessible at `http://localhost:3000`.
+
 ## Get Involved
 
 If you're interested in contributing or have suggestions, feel free to check out our project on [GitHub](https://github.com/Ranaco). Your participation is always welcome!
