@@ -1,33 +1,38 @@
 import * as React from "react";
 import GroceryAbi from "../abi/grocery-abi";
-import { useSDK } from "@metamask/sdk-react";
-import Web3 from "web3";
+import { ethers } from "ethers";
 
-const CONTRACT_ADDRESS = process.env.NEXT_PUBLIC_CONTRACT_ADDRESS;
+const CONTRACT_ADDRESS = process.env.NEXT_PUBLIC_CONTRACT_ADDRESS || "";
 
 const useWeb3 = () => {
-  const { provider, account } = useSDK();
+  const getContract = React.useCallback(async () => {
+    const browserProvider = new ethers.providers.Web3Provider(provider);
+    const signer = browserProvider.getSigner();
+    const contract = new ethers.Contract(CONTRACT_ADDRESS, GroceryAbi, signer);
+    console.log(contract);
 
-  const web3 = new Web3(provider);
+    return contract;
+  }, [account, connected]);
 
-  const contract = new web3.eth.Contract(GroceryAbi, CONTRACT_ADDRESS);
-
-  const userIsPresent = async (): Promise<boolean> => {
-    const isPresent = await contract.methods.users().call();
-
-    return isPresent[account] !== undefined;
+  const userIsPresent = async () => {
+    const contract = await getContract();
+    const isPresent = await (await contract?.addressToUser()).call();
+    console.log(isPresent);
   };
 
   const addUser = async (userCID: string) => {
-    await contract.methods.addUser(userCID).send({ from: account });
+    const contract = await getContract();
+    await (await contract?.addUser(userCID)).send({ from: "" });
   };
 
-  const bookItem = async (itemId: number, orderCID: string) => {
-    await contract.methods.bookItem(itemId, orderCID).send({ from: account });
+  const bookItem = async (itemId: string, orderCID: string) => {
+    const contract = await getContract();
+    await (await contract?.bookItem(itemId, orderCID)).send({ from: "" });
   };
 
   const getUserData = async () => {
-    return await contract.methods.getUserData().call();
+    const contract = await getContract();
+    await (await contract?.getUserData()).call();
   };
 
   return {

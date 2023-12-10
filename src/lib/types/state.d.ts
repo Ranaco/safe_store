@@ -7,6 +7,7 @@ type AppContextType = {
 };
 
 type AppContextValue = {
-  address: string;
+  wallet: string;
   user?: UserType;
+  contract: any;
 };
