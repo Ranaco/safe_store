@@ -17,7 +17,7 @@ Our primary objectives revolve around promoting the use of cryptocurrency in dai
 ### Middlewares
 
 - [Anon Aadhar](https://anonaadhar.com/): Ensuring secure and anonymous Aadhar verification.
-- [Safe Wallet](https://safe.gnosis.io/): Implementing multi-signature wallets for secure transactions.
+- [Safe Wallet](https://safe.global/): Implementing multi-signature wallets for secure transactions.
 - [Arbitrum](https://offchainlabs.com/): Leveraging the Arbitrum network for efficient and scalable smart contracts.
 
 ### Database
@@ -35,11 +35,11 @@ Our primary objectives revolve around promoting the use of cryptocurrency in dai
 
 We express our gratitude to the following entities for their support and contributions:
 
-- [Safe](https://safe.gnosis.io/)
+- [Safe](https://safe.global/)
 - [Arbitrum](https://offchainlabs.com/arbitrum/)
 - [Ethereum Foundation](https://ethereum.org/en/foundation/)
 - [MetaMask](https://metamask.io/)
-- [LightHouse](https://lighthouse.adqr.org/)
+- [LightHouse](https://lighthouse.storage/)
 
 ## How to Run
 
