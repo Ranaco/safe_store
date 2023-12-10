@@ -2,12 +2,6 @@
 
 Welcome to Safe Shop, your one-stop solution for day-to-day essentials. With our platform, users can conveniently access and purchase exactly what they need for their daily use. We aim to create a robust community connecting shop owners and consumers, fostering a network around our service.
 
-## Development Roadmap
-
-- **September: Beta (Phase 1)**
-- **October: Beta (Phase 2)**
-- **January: Public Launch**
-
 ## Objectives
 
 Our primary objectives revolve around promoting the use of cryptocurrency in daily transactions. To ensure the security of every transaction, we implement a multi-signature wallet using Safe, adding an extra layer of security to the blockchain through Arbitrum.
