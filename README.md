@@ -22,7 +22,7 @@ Our primary objectives revolve around promoting the use of cryptocurrency in dai
 
 ### Database
 
-- [Lighthouse](https://lighthouse.adqr.org/): A decentralized, censorship-resistant database.
+- [Lighthouse](https://lighthouse.storage/): A decentralized, censorship-resistant database.
 - [IPFS](https://ipfs.io/): A peer-to-peer hypermedia protocol to make the web faster, safer, and more open.
 
 ## Challenges
