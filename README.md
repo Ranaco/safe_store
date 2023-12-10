@@ -1,40 +1,54 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Safe Shop: Grocery at Your Fingertips
 
-## Getting Started
+Welcome to Safe Shop, your one-stop solution for day-to-day essentials. With our platform, users can conveniently access and purchase exactly what they need for their daily use. We aim to create a robust community connecting shop owners and consumers, fostering a network around our service.
 
-First, run the development server:
+## Development Roadmap
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- **September: Beta (Phase 1)**
+- **October: Beta (Phase 2)**
+- **January: Public Launch**
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Objectives
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+Our primary objectives revolve around promoting the use of cryptocurrency in daily transactions. To ensure the security of every transaction, we implement a multi-signature wallet using Safe, adding an extra layer of security to the blockchain through Arbitrum.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+## Technology Stack
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+### Frontend
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+- [Next.js](https://nextjs.org/): A React framework for building efficient and scalable web applications.
+- [Tailwind CSS](https://tailwindcss.com/): A utility-first CSS framework for rapid UI development.
+- [Framer Motion](https://www.framer.com/motion/): A library for creating smooth animations.
 
-## Learn More
+### Middlewares
 
-To learn more about Next.js, take a look at the following resources:
+- [Anon Aadhar](https://anonaadhar.com/): Ensuring secure and anonymous Aadhar verification.
+- [Safe Wallet](https://safe.gnosis.io/): Implementing multi-signature wallets for secure transactions.
+- [Arbitrum](https://offchainlabs.com/): Leveraging the Arbitrum network for efficient and scalable smart contracts.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Database
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+- [Lighthouse](https://lighthouse.adqr.org/): A decentralized, censorship-resistant database.
+- [IPFS](https://ipfs.io/): A peer-to-peer hypermedia protocol to make the web faster, safer, and more open.
 
-## Deploy on Vercel
+## Challenges
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+1. **Safe Integration**: Achieving compatibility and seamless integration with Ethers posed significant challenges.
+2. **Arbitrum Implementation**: As a new network, implementing Arbitrum was time-consuming, and selecting the right testnet presented its own challenges.
+3. **Map Integration**: Leveraging Leaflet for map integration proved to be more challenging than anticipated.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## Bounties
+
+We express our gratitude to the following entities for their support and contributions:
+
+- [Safe](https://safe.gnosis.io/)
+- [Arbitrum](https://offchainlabs.com/arbitrum/)
+- [Ethereum Foundation](https://ethereum.org/en/foundation/)
+- [MetaMask](https://metamask.io/)
+- [LightHouse](https://lighthouse.adqr.org/)
+
+## Get Involved
+
+If you're interested in contributing or have suggestions, feel free to check out our project on [GitHub](https://github.com/Ranaco). Your participation is always welcome!
+
+Thank you for being a part of the Safe Shop community!
